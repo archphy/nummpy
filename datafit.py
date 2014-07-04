@@ -14,12 +14,9 @@ def linear(xs, ys, full=False):
 	full: Return just the linear regression function (False) or the function's 
 	coefficients, the residue, and the function itself (True)? (bool) 
 	
-	Returns g(x), the least squares approximation of the (xs, ys) points. 
-	Prints the coefficients such as g(x) = ax + b.
-	
 	E.g. linear(numpy.array([-1.0, 0.0, 1.0]), numpy.array([-1.0, 0.0, 1.0]))
 	"""
-	# Optimization of qmn, since linear regression is the most common one.
+	# Optimization of polyfit, since linear regression is the most common one.
 	
 	sxs = sum(xs)
 	cs = numpy.linalg.solve(
@@ -36,18 +33,14 @@ def linear(xs, ys, full=False):
 def polyfit(xs, ys, n, full=False):
 	"""Least squares fit for (xs, ys) using a polynomial of degree n.
 	
-	This is the discrete approach to the least squares problem, whereas lsnc is 
-	the continuous approach.
+	This is the discrete approach to the least squares problem, whereas 
+	polyfitc is the continuous approach.
 	
 	xs: The x points. (numpy array of floats)
 	ys: The y points. (numpy array of floats)
 	n: The polynomial degree. (int)
 	full: Return just the polynomial fit function (False) or the function's 
 	coefficients, the residue, and the function itself (True)? (bool)
-
-	Returns g(x), the least squares approximation of the (xs, ys) points. 
-	Prints the (a, b, ..., z) coefficients such as 
-	g(x) = ax^n + bx^n-1 + ... + z.
 	
 	E.g. polyfit(numpy.array([-1.0, 0.0, 1.0]), numpy.array([1.0, 0.0, 1.0]), 2) 
 	"""
@@ -70,22 +63,18 @@ def polyfit(xs, ys, n, full=False):
 def polyfitc(f, xo, xn, n, met='boole', h=10**-4, full=False):
 	"""Least squares fit for f from xo to xn using a polynomial of degree n.
 	
-	This is the continuous approach to the least squares problem, whereas lsn 
-	is the discrete approach.
+	This is the continuous approach to the least squares problem, whereas 
+	polyfit is the discrete approach.
 
-	f: The function to approximate. (sympy-compatible function)
+	f: The function to approximate. (python-compatible function)
 	xo: Evaluate from xo. (float)
 	xn: To xn. (float)
 	n: The polynomial degree. (int)
 	met: The integration method. 'sym' for symbolic integration (might take a 
-	LONG time), else see numint. (str or int)
+	LONG time and f must be sympy-compatible), else see numint. (str or int)
 	h: The step size for the numerical integration, if any. (float)
 	full: Return just the polynomial fit function (False) or the function's 
 	coefficients, the residue, and the function itself (True)? (bool)
-	
-	Returns g(x), the least squares approximation of the (xs, ys) points. 
-	Prints the (a, b, ..., z) coefficients such as 
-	g(x) = ax^n + bx^n-1 + ... + z.
 	
 	def f(x):
 		return math.sin(x*math.pi*2) + math.cos(x*math.pi*3)
@@ -99,7 +88,7 @@ def polyfitc(f, xo, xn, n, met='boole', h=10**-4, full=False):
 	# Or
 	#
 	# http://www3.nd.edu/~zxu2/acms40390F11/sec8-2.pdf
-	# A slide from University of Notre Drame using the same logic.
+	# A slide from University of Notre Drame using the same algorithm.
 
 	ans = []
 	coefs = []
@@ -138,15 +127,12 @@ def funfit(fs, xs, ys, full=False):
 	
 	* http://statpages.org/nonlin.html
 	
-	fs: Fit the data using this functions. (set of sympy-compatible function)
+	fs: Fit the data using this functions. (set of numpy-compatible function)
 	f: The function to approximate. (sympy-compatible function)
 	xo: Evaluate from xo. (float)
 	xn: To xn. (float)
 	full: Return just the function fit function (False) or the function's 
 	coefficients, the residue, and the function itself (True)? (bool)
-	
-	Returns g(x), the least squares approximation of the (xs, ys) points. 
-	Prints the (a, ..., z) coefficients such as g(x) = a*fs[0] + ... + z*fs[-1].
 	
 	E.g.: funfit([l0, l1, l2, l3, l4], xs, ys)
 	Where ln is a function for the nth Legendre Polynomial, and (xs, ys) the 
@@ -189,12 +175,9 @@ def funfitc(fs, f, xo, xn, met='boole', h=10**-4, full=False):
 	xs: The x points. (numpy array of floats)
 	ys: The y points. (numpy array of floats)
 	met: The integration method. 'sym' for symbolic integration (might take a 
-	LONG time), else see numint. (str or int)
+	LONG time and fs must be sympy-compatible), else see numint. (str or int)
 	full: Return just the function fit function (False) or the function's 
 	coefficients, the residue, and the function itself (True)? (bool)
-	
-	Returns g(x), the least squares approximation of the (xs, ys) points. 
-	Prints the (a, ..., z) coefficients such as g(x) = a*fs[0] + ... + z*fs[-1].
 	
 	E.g.: funfitc([l0, l1, l2, l3, l4], f, -1, 1)
 	Where ln is a function for the nth Legendre Polynomial, and f a function.
