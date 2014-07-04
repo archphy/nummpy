@@ -6,7 +6,7 @@ def d_n(f, n):
 	# f's nth derivative, using symbolic differentiation (sympy)
 	# Returns a sympy lambda function
 		
-	x = sympy.Symbol('x')
+	x = sympy.symbols('x')
 	try:
 		d_1 = f(x)
 		for i in xrange(n):
