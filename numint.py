@@ -1,7 +1,5 @@
 import numpy
 
-# TODO: Use xrange instead of numpy arange to avoid unecessary import
-
 def trapezoidal(xo, xn, f):
 	"""For internal use."""
 	
