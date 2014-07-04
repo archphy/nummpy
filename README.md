@@ -1,8 +1,8 @@
-nummpy (NUMerical Methods Python library) supplies a narrow range of numerical methods 
-and auxiliary functions. It has a syntax similar to numpy's one. It is not 
-intended to replace existing libraries - numpy and scipy are faster, have more 
-features and are more robust. This is a personal project maintained as a hobby. 
-It comes with ABSOLUTELY NO WARRANTY.
+nummpy (NUMerical Methods Python library) provides a narrow range of numerical 
+methods and auxiliary functions. It has a syntax similar to numpy's one. It is 
+not intended to replace existing libraries - numpy and scipy are faster, have 
+more features and are more robust. This is a personal project maintained as a 
+hobby. It comes with ABSOLUTELY NO WARRANTY.
 
 For help, use help(method).
 
@@ -11,7 +11,8 @@ For copying, see LICENSE.
 The example image shows the function sin(2*pi*x)+cos(3*pi*x) from -1 to 1, 
 (green line), 20 evenly spaced points, the Lagrange Interpolation Polynomial of 
 degree 19 (blue line, overlapped by the green one), and the data fitting (via 
-linear least squares) of the 20 pts using the six first Legendre Polynomials.
+linear least squares) of the 20 pts using the six first Legendre Polynomials 
+(red line).
    
 ![Screenshot](https://raw.github.com/a442/nummpy/master/ex.png "Screenshot")
 
