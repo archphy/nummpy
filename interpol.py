@@ -1,6 +1,6 @@
 from aux import d_n, maxmin_fx, max_
 import math
-import operator		# Used in lagrange_pol (lighter than importing numpy)
+import numpy
 
 # TODO: Bilenear and other interpolations
 
@@ -30,7 +30,7 @@ def lagrange_pol(x, j, k, xs):
 		if m != j:
 			terms.append((x - xs[m]) / (xs[j] - xs[m]))
 		m += 1
-	return reduce(operator.mul, terms)		# Same as return numpy.prod(terms)
+	return numpy.prod(terms)
 
 # This isn't intended to be efficient, but to be clear what is being done and 
 # to separate the Lagrange Polynomial generation from the interpolation itself.
