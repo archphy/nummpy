@@ -1,4 +1,4 @@
-nummpy (NUMerical Methods Python) supplies a narrow range of numerical methods 
+nummpy (NUMerical Methods Python library) supplies a narrow range of numerical methods 
 and auxiliary functions. It has a syntax similar to numpy's one. It is not 
 intended to replace existing libraries - numpy and scipy are faster, have more 
 features and are more robust. This is a personal project maintained as a hobby. 
