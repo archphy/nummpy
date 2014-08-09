@@ -2,8 +2,6 @@ from aux import d_n, maxmin_fx, max_
 import math
 import numpy
 
-# TODO: Bilenear and other interpolations
-
 def chebyshev(f, n):
 	"""Returns the n Chebyshev nodes (x, f(x)) from -1 to 1."""
 
